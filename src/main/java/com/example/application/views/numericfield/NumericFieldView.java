@@ -28,7 +28,7 @@ public class NumericFieldView extends VerticalLayout {
 
         TextField numberField = new TextField("Number in a text field formatted as 11 111.11");
         InputMask inputMask = new InputMask("Number", true, InputMaskOption.option("scale", 2),
-                InputMaskOption.option("thousandsSeparator", " "), InputMaskOption.option("radix", '.'));
+                InputMaskOption.option("thousandsSeparator", "."), InputMaskOption.option("radix", ','));
 
         inputMask.extend(numberField);
 

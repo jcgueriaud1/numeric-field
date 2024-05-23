@@ -35,8 +35,8 @@ public class CustomBigDecimalField extends AbstractCompositeField<TextField, Cus
         implements HasPrefix, HasSuffix, HasStyle, HasValidation, HasSize, Focusable<CustomBigDecimalField>, HasLabel, HasTooltip, HasValidator<BigDecimal>, HasAriaLabel {
 
     private final int scale;
-    public static final char GROUPING_SEPARATOR = ' ';
-    public static final char DECIMAL_SEPARATOR = '.';
+    public static final char GROUPING_SEPARATOR = '.';
+    public static final char DECIMAL_SEPARATOR = ',';
 
 
     public static DecimalFormat getNumberFormat() {
@@ -52,7 +52,7 @@ public class CustomBigDecimalField extends AbstractCompositeField<TextField, Cus
     }
 
     public CustomBigDecimalField(String label) {
-        this(label, 2);
+        this(label, 0);
     }
 
     private CustomBigDecimalField(String label, int scale) {
@@ -75,7 +75,7 @@ public class CustomBigDecimalField extends AbstractCompositeField<TextField, Cus
     private void extend() {
             new InputMask("Number", true,
                     InputMaskOption.option("scale", scale),
-                    InputMaskOption.option("thousandsSeparator", " "),
+                    InputMaskOption.option("thousandsSeparator", "."),
                     InputMaskOption.option("radix", DECIMAL_SEPARATOR),
                     InputMaskOption.option("min", 0))
                     .extend(getContent());
